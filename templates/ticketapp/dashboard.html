@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+</head>
+<body>
+
+<header>
+	<nav class="navbar navbar-expand-lg navbar-light bg-info">
+		<a class="navbar-brand p-3" href="#"><h2 class="text-white">Ticket</h2></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		  <div class="navbar-nav ml-auto">
+			<a class="nav-link p-3" href="#"><h4 class="text-white">Home</h4></a>
+			<a class="nav-link p-3" href="mytickets/"><h4 class="text-white">My Tickets</h4></a>
+			<a class="nav-link p-3" href="#"><h4 class="text-white">Logout</h4></a>
+			<a class="nav-link p-3"><h4 class="text-white">{{user}}</h4></a>
+		  </div>
+		</div>
+	  </nav>
+</header>
+<!--Ticket Section-->
+<section>
+	<div class="container mt-3">
+		<form method="POST">
+			<h2>Submit a ticket</h2>
+			<h4 class="mt-5">Ticket Information</h4>
+			<div class="form-group">
+			  <label for="exampleFormControlInput1">Department*</label>
+			  <select class="custom-select mr-sm-2" name="department" required>
+				<option selected>Choose...</option>
+				<option value="1">vegaops</option>
+				<option value="2">isupport</option>
+				<option value="3">concert</option>
+			  </select>
+			</div>
+			<div class="form-group">
+			  <label for="exampleFormControlSelect1">Category*</label>
+			  <select class="form-control" name="category" required>
+				<option>Git Source control</option>
+				<option>PWSLab server not responding (502/503 errors)</option>
+				<option>PWSLab Runner not working (jobs not running)</option>
+				<option>User management and Project access</option>
+				<option>Others</option>
+			  </select>
+			</div>
+			<div class="form-group">
+			  <label for="exampleFormControlSelect2">Subject*</label>
+			  <input type="text" class="form-control" name="subject" required>
+			</div>
+			<div class="form-group">
+			  <label for="exampleFormControlTextarea1">Description*</label>
+			  <textarea class="form-control" name="description" rows="3"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Priority*</label>
+				<select class="custom-select mr-sm-2" name="priority" required>
+				  <option selected>-None-</option>
+				  <option value="1">High - Production System Down</option>
+				  <option value="2">Medium - System Impaired</option>
+				  <option value="3">Low - General Guidance</option>
+				</select>
+			  </div>
+			<h4 class="mt-3">Contact Details</h4>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Name*</label>
+				<input type="text" class="form-control" name="name" value={{name}} readonly>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputPassword1">Email*</label>
+				<input type="text" class="form-control" name="email" value={{user}} readonly>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputPassword1">Phone*</label>
+				<input type="text" class="form-control" name="phone">
+			  </div>
+			  {% csrf_token %}
+			  <input type="submit" class="btn btn-primary" name="ticket">
+		  </form>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+</body>
+</html>
